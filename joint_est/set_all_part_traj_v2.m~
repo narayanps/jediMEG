@@ -1,0 +1,8 @@
+function [id, r_, G_] = set_all_part_traj_v2(pnts, G, dist_thr, num_sources, N, m0, P0)
+M=length(pnts);
+dist_sources=zeros(1,N);
+r_=zeros(3*num_sources,N);
+G_=zeros(size(G,1),num_sources,N);
+min_dist = 0;
+r_ = repmat(m0, [1 N]) + chol(P0)*randn(num_sources, N);
+G_(:,:,j) = G(:, id(:,j)');
